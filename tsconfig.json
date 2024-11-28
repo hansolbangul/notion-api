@@ -1,7 +1,10 @@
 {
+  "ts-node": {
+    "esm": true
+  },
   "compilerOptions": {
-    "target": "ESNext",
     "module": "ESNext",
+    "target": "ESNext",
     "baseUrl": ".",
     "moduleResolution": "Node",
     "paths": {
@@ -12,6 +15,7 @@
     "declarationDir": "./dist",
     "outDir": "./dist",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true
   },
   "include": ["src/**/*"]
