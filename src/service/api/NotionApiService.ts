@@ -193,8 +193,6 @@ class NotionApiService {
       (post) => post.title && (includePages || post.type !== 'page')
     );
 
-    console.log('validPosts', validPosts);
-
     return validPosts;
   }
 }
