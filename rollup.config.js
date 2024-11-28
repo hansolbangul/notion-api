@@ -17,4 +17,16 @@ export default [
     ],
     plugins: [typescript()],
   },
+  {
+    input: './script/type-cli.ts',
+    output: [
+      {
+        file: './dist/type-cli.cjs',
+        format: 'cjs',
+        sourcemap: true,
+        banner: '#!/usr/bin/env node',
+      },
+    ],
+    plugins: [typescript()],
+  },
 ];
