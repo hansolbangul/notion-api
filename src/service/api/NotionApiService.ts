@@ -9,7 +9,7 @@ import {
 
 interface PageProperties {
   id: string;
-  createdTime?: Date;
+  createdTime?: string;
   fullWidth?: boolean;
   block?: ExtendedRecordMap;
   [key: string]: any;
