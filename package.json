@@ -1,6 +1,6 @@
 {
   "name": "@hansolbangul/notion-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A lightweight library for fetching and statically generating data and TypeScript types from Notion pages.",
   "type": "module",
   "main": "dist/index.js",
