@@ -56,7 +56,7 @@ async function fetchSchema(pageId: string): Promise<DynamicSchema> {
 }
 
 function generateType(schema: DynamicSchema): string {
-  let result = 'export interface NotionProperties {\n';
+  let result = 'interface NotionProperties {\n';
 
   for (const key in schema) {
     const field = schema[key];

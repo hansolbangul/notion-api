@@ -17,6 +17,8 @@ class NotionApiService {
 
   constructor(config: NotionConfig) {
     this.api = new NotionAPI();
+
+    const notion = new NotionAPI()
     this.config = config;
   }
 

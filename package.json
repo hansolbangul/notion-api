@@ -1,7 +1,7 @@
 {
-  "name": "notion-api",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@hansolbangul/notion-api",
+  "version": "0.0.1",
+  "description": "A lightweight library for fetching and statically generating data and TypeScript types from Notion pages.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,17 +12,21 @@
     "start": "tsx ./src/index.ts",
     "type": "tsx ./script/type-cli.ts"
   },
-  "keywords": [],
+  "keywords": [
+    "notion-api",
+    "typescript",
+    "notion",
+    "static-data",
+    "notion-cli",
+    "type-generation",
+    "notion-integration",
+    "data-fetching"
+  ],
   "author": "hansolbangul",
   "license": "ISC",
   "packageManager": "pnpm@9.9.0",
   "devDependencies": {
-    "@eslint/js": "^9.15.0",
     "@types/node": "^22.10.1",
-    "@typescript-eslint/eslint-plugin": "^8.16.0",
-    "@typescript-eslint/parser": "^8.16.0",
-    "eslint": "^9.15.0",
-    "eslint-plugin-react": "^7.37.2",
     "globals": "^15.12.0",
     "prettier": "^3.4.1",
     "rollup": "^4.27.4",
@@ -30,8 +34,7 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2",
-    "typescript-eslint": "^8.16.0"
+    "typescript": "^5.7.2"
   },
   "dependencies": {
     "@types/react": "^18.3.12",
