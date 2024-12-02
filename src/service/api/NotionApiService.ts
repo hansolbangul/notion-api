@@ -7,8 +7,6 @@ import {
   ID,
 } from 'notion-types';
 
-type TPosts = any;
-
 interface NotionConfig {
   pageId: string;
 }
@@ -141,10 +139,7 @@ class NotionApiService {
     return properties;
   }
 
-  public async getPosts(
-    includePages = false,
-    viewId?: string
-  ): Promise<TPosts> {
+  public async getPosts<T>(viewId?: string): Promise<T> {
     let id = this.config.pageId;
     id = idToUuid(id);
 
@@ -163,7 +158,7 @@ class NotionApiService {
       rawMetadata?.type !== 'collection_view_page' &&
       rawMetadata?.type !== 'collection_view'
     ) {
-      return [];
+      return [] as T;
     }
 
     const pageIds = this.getAllPageIds(recordMap, viewId);
@@ -189,11 +184,7 @@ class NotionApiService {
       })
     );
 
-    const validPosts = posts.filter(
-      (post) => post.title && (includePages || post.type !== 'page')
-    );
-
-    return validPosts;
+    return posts as T;
   }
 }
 
