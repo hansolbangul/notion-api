@@ -4,6 +4,7 @@
   "description": "A lightweight library for fetching and statically generating data and TypeScript types from Notion pages.",
   "type": "module",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "bin": {
     "type-cli": "dist/type-cli.cjs"
@@ -11,7 +12,8 @@
   "scripts": {
     "build": "rollup -c",
     "start": "tsx ./src/index.ts",
-    "type": "tsx ./script/type-cli.ts"
+    "type": "tsx ./script/type-cli.ts",
+    "prepare": "pnpm run build"
   },
   "keywords": [
     "notion-api",
