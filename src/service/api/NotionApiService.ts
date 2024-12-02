@@ -11,14 +11,14 @@ interface NotionConfig {
   pageId: string;
 }
 
-class NotionApiService {
+export class NotionApiService {
   private api: NotionAPI;
   private config: NotionConfig;
 
   constructor(config: NotionConfig) {
     this.api = new NotionAPI();
 
-    const notion = new NotionAPI()
+    const notion = new NotionAPI();
     this.config = config;
   }
 
@@ -189,5 +189,3 @@ class NotionApiService {
     return posts as T;
   }
 }
-
-export default NotionApiService;

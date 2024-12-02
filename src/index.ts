@@ -1,1 +1,1 @@
-export * as NotionApiService from 'service/api/NotionApiService';
+export { NotionApiService } from 'service/api/NotionApiService';
