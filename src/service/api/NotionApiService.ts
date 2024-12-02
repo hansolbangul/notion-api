@@ -7,6 +7,14 @@ import {
   ID,
 } from 'notion-types';
 
+interface PageProperties {
+  id: string;
+  createdTime?: Date;
+  fullWidth?: boolean;
+  block?: ExtendedRecordMap;
+  [key: string]: any;
+}
+
 interface NotionConfig {
   pageId: string;
 }
@@ -55,11 +63,11 @@ export class NotionApiService {
     pageId: string,
     block: BlockMap,
     schema: CollectionPropertySchemaMap
-  ): Promise<Record<string, any>> {
+  ): Promise<PageProperties> {
     const rawProperties: [string, any][] = Object.entries(
       block?.[pageId]?.value?.properties || {}
     );
-    const properties: Record<string, any> = { id: pageId };
+    const properties: PageProperties = { id: pageId };
 
     for (const [key, value] of rawProperties) {
       const fieldSchema = schema[key];
@@ -148,7 +156,7 @@ export class NotionApiService {
     const recordMap = await this.fetchPage(id);
     const collection = Object.values(recordMap.collection)[0]?.value;
     const block: BlockMap = recordMap.block;
-    const schema: CollectionPropertySchemaMap = collection?.schema;
+    const schema = collection?.schema;
 
     if (!schema) {
       throw new Error('Schema not found in the given Notion page.');
@@ -174,10 +182,11 @@ export class NotionApiService {
 
         const blockValue: any = block[pageId]?.value;
         if (blockValue) {
-          properties.createdTime = new Date(
+          properties['createdTime'] = new Date(
             blockValue?.created_time
           ).toISOString();
-          properties.fullWidth = blockValue?.format?.page_full_width || false;
+          properties['fullWidth'] =
+            blockValue?.format?.page_full_width || false;
         }
 
         properties.block = postBlock;
